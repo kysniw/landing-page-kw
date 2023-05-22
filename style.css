@@ -47,6 +47,7 @@ body {
   letter-spacing: 0.1rem;
   margin-top: 0.8rem;
   color: rgba(250, 19, 158, 255);
+  text-shadow: 0.5rem 0.5rem 3rem black;
 }
 .header__text h3 {
   font-size: 2.6rem;
@@ -54,12 +55,8 @@ body {
 .header__text p {
   margin-top: 3rem;
   font-size: 2.9rem;
-  font-weight: 400;
-}
-
-.header__text span {
-  color: rgba(250, 19, 158, 255);
-  font-weight: 600;
+  font-weight: 700;
+  text-justify: newspaper;
 }
 
 .btn {
@@ -256,7 +253,7 @@ section {
   transition: 0.5s ease;
 }
 .footer-iconTop a i {
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: white;
 }
 .footer-iconTop a:hover {
@@ -285,6 +282,11 @@ section {
   html {
     font-size: 60%;
   }
+
+  .header__image-container {
+    height: auto;
+  }
+
   .header__image {
     height: 80vh;
   }
@@ -350,10 +352,19 @@ section {
     height: 8rem;
     align-items: center;
   }
+
+  .error-msg .container {
+    padding: 5rem;
+  }
 }
 
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+
+  .header__text p {
+    padding: 0 3rem;
+    font-size: 2.3rem;
   }
 }

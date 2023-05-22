@@ -62,7 +62,11 @@ const listeners = () => {
       errorText.innerHTML += "<h3>Numer</h3> musi mieć 9 cyfr";
     }
 
-    if (instaNick.value !== "" && instaNick.value.indexOf("@") === 0) {
+    if (
+      instaNick.value !== "" &&
+      instaNick.value.indexOf("@") === 0 &&
+      instaNick.value.length > 2
+    ) {
       instaNickVal = true;
       instaNick.style.border = "none";
     } else {
@@ -88,7 +92,7 @@ const listeners = () => {
       instaNickVal &&
       consentVal
     ) {
-      fetch("https://formsubmit.co/ajax/kubawin11@gmail.com", {
+      fetch("https://formsubmit.co/ajax/matchem.university@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
