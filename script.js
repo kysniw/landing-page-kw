@@ -1,11 +1,20 @@
 let formSubmit;
-let consent, consentLabel, fullname, email, phoneNumber, instaNick;
+let consent,
+  consentLabel,
+  consentTwo,
+  consentLabelTwo,
+  fullname,
+  email,
+  phoneNumber,
+  instaNick;
 let errorCont, errorText, errorBtn;
 
 const elements = () => {
   formSubmit = document.querySelector(".contact__form");
-  consent = document.querySelector(".checkbox__input");
-  consentLabel = document.querySelector(".checkbox__label");
+  consent = document.querySelector(".checkbox__input-one");
+  consentLabel = document.querySelector(".checkbox__label-one");
+  consentTwo = document.querySelector(".checkbox__input-two");
+  consentLabelTwo = document.querySelector(".checkbox__label-two");
   fullname = document.querySelector(".fullname");
   email = document.querySelector(".email");
   phoneNumber = document.querySelector(".phone-number");
@@ -23,6 +32,7 @@ const listeners = () => {
     let phoneNumberVal = false;
     let instaNickVal = false;
     let consentVal = false;
+    let consentTwoVal = false;
 
     const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -85,12 +95,22 @@ const listeners = () => {
       consentLabel.style.border = "1px solid red";
     }
 
+    if (consentTwo.checked) {
+      consentTwoVal = true;
+      consentTwo.style.border = "none";
+      consentLabelTwo.style.border = "none";
+    } else {
+      consentTwo.style.border = "1px solid red";
+      consentLabelTwo.style.border = "1px solid red";
+    }
+
     if (
       fullnameVal &&
       emailVal &&
       phoneNumberVal &&
       instaNickVal &&
-      consentVal
+      consentVal &&
+      consentTwoVal
     ) {
       fetch("https://formsubmit.co/ajax/matchem.university@gmail.com", {
         method: "POST",
@@ -106,7 +126,16 @@ const listeners = () => {
         }),
       })
         .then((response) => response.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+          errorCont.style.display = "flex";
+          errorText.innerHTML = "Wiadomość wysłana!";
+          fullname.value = "";
+          email.value = "";
+          phoneNumber.value = "";
+          instaNick.value = "";
+          consent.checked = false;
+          consentTwo.checked = false;
+        })
         .catch((error) => console.log(error));
     }
   });

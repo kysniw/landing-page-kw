@@ -148,21 +148,28 @@ section {
 .contact .checkbox {
   margin-top: 1rem;
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  align-items: center;
+  justify-content: stretch;
 }
 
-.contact .checkbox__input {
+.contact .checkbox input {
   display: inline-block;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
 }
 
-.contact .checkbox__label {
+.contact .checkbox label {
   font-size: 1.6rem;
   cursor: pointer;
+  margin-left: 2rem;
+  text-align: left;
+  width: fit-content;
+}
+
+.contact .checkbox label a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 .contact__info {
@@ -229,7 +236,7 @@ section {
 }
 
 .footer-text p {
-  margin-right: 5rem;
+  margin-right: 1rem;
 }
 
 .footer-text a {
@@ -237,6 +244,7 @@ section {
   color: white;
   text-decoration: underline;
   transition: 0.3s;
+  margin-right: 1rem;
 }
 
 .footer-text a:hover {
@@ -351,6 +359,10 @@ section {
     justify-content: space-evenly;
     height: 8rem;
     align-items: center;
+  }
+
+  .footer-text {
+    margin: 0;
   }
 
   .error-msg .container {
