@@ -1,5 +1,5 @@
 let formSubmit;
-let consent, consentLabel, fullname, email, phoneNumber, instaNick, message;
+let consent, consentLabel, fullname, email, phoneNumber, instaNick;
 let errorCont, errorText, errorBtn;
 
 const elements = () => {
@@ -10,7 +10,6 @@ const elements = () => {
   email = document.querySelector(".email");
   phoneNumber = document.querySelector(".phone-number");
   instaNick = document.querySelector(".insta-nick");
-  message = document.querySelector(".message");
   errorCont = document.querySelector(".error-msg");
   errorText = document.querySelector(".error-msg p");
   errorBtn = document.querySelector(".error-msg button");
@@ -23,7 +22,6 @@ const listeners = () => {
     let emailVal = false;
     let phoneNumberVal = false;
     let instaNickVal = false;
-    let messageVal = false;
     let consentVal = false;
 
     const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -74,19 +72,6 @@ const listeners = () => {
         "<h3>Nazwa na insta</h3> musi zaczynać się od @ i mieć co najmniej 3 znaki";
     }
 
-    if (
-      message.value !== "" &&
-      message.value.length > 4 &&
-      message.value.length < 500
-    ) {
-      messageVal = true;
-      message.style.border = "none";
-    } else {
-      message.style.border = "1px solid red";
-      errorCont.style.display = "flex";
-      errorText.innerHTML += "<h3>Wiadomość</h3> mieć co najmniej 5 znaków";
-    }
-
     if (consent.checked) {
       consentVal = true;
       consent.style.border = "none";
@@ -94,6 +79,31 @@ const listeners = () => {
     } else {
       consent.style.border = "1px solid red";
       consentLabel.style.border = "1px solid red";
+    }
+
+    if (
+      fullnameVal &&
+      emailVal &&
+      phoneNumberVal &&
+      instaNickVal &&
+      consentVal
+    ) {
+      fetch("https://formsubmit.co/ajax/kubawin11@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          "Imię i Nazwisko": fullname.value,
+          Email: email.value,
+          Telefon: phoneNumber.value,
+          Instagram: instaNick.value,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
     }
   });
 
