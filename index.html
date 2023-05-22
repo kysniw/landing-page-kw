@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header" id="header">
       <div class="header__content">
         <div class="header__text">
-          <h3>Program skutecznego nauczania</h3>
+          <h3>PROGRAM SKUTECZNEGO NAUCZANIA</h3>
           <h1>MatChem University</h1>
           <p>
-            Zdaj wszystkie egzaminy z <span>matematyki i chemii</span> i pozbądź
-            się zbędnego stresu bez konieczności wychodzenia z domu!
+            Dołącz i zdaj wszystkie egzaminy w liceum z
+            <span>matematyki i chemii</span> i pozbądź się zbędnego stresu bez
+            konieczności wychodzenia z domu!
           </p>
         </div>
-        <div class="heder__social-media"></div>
-        <a href="" class="header__link">
+        <a href="#contact" class="header__link btn">
           <i class="fa-solid fa-pen header__icon"></i>Zapisz się na listę
           oczekujących
         </a>
@@ -34,8 +34,41 @@
         <img class="header__image" src="./media/portrait.jpeg" alt="portrait" />
       </div>
     </header>
-    <section class="contact">
-      <form action="post"></form>
+
+    <section class="contact" id="contact">
+      <form class="contact__form">
+        <div class="input-box">
+          <input type="text" placeholder="Imię i azwisko" />
+          <input type="email" placeholder="Adres email" />
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Number telefonu" />
+          <input type="text" placeholder="Tytuł wiadomości" />
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Twoja wiadomość"
+        ></textarea>
+        <input
+          type="submit"
+          value="Wyślij wiadomość"
+          class="contact__button btn"
+        />
+      </form>
     </section>
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 by Kysniw | All Rights Reserved.</p>
+        <a href="./media/polityka-prywtanosci-mrsmatchem.pdf"
+          >Polityka Prywatności</a
+        >
+      </div>
+      <div class="footer-iconTop">
+        <a href="#header"><i class="fa-solid fa-chevron-up"></i></a>
+      </div>
+    </footer>
   </body>
 </html>
