@@ -39,7 +39,8 @@ const listeners = () => {
     if (
       fullname.value !== "" &&
       fullname.value.length > 3 &&
-      fullname.value.indexOf(" ") !== -1
+      fullname.value.indexOf(" ") !== -1 &&
+      fullname.value.indexOf(" ") !== fullname.value.length - 1
     ) {
       fullnameVal = true;
       fullname.style.border = "none";
@@ -112,7 +113,7 @@ const listeners = () => {
       consentVal &&
       consentTwoVal
     ) {
-      fetch("https://formsubmit.co/ajax/matchem.university@gmail.com", {
+      fetch("https://formsubmit.co/ajax/00ef6414277af7743436afe49ecb5364", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
