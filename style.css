@@ -222,6 +222,24 @@ section {
   color: rgb(250, 19, 158);
 }
 
+.dot-one,
+.dot-two,
+.dot-three {
+  display: inline-block;
+  font-size: 3rem;
+}
+
+.dot-one {
+  animation: floatDot 2s infinite;
+}
+
+.dot-two {
+  animation: floatDot 2s infinite 0.5s;
+}
+.dot-three {
+  animation: floatDot 2s infinite 1s;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -330,10 +348,10 @@ section {
     height: 90vh;
   }
 
-  .header__text p {
+  /* .header__text p {
     padding: 0 3rem;
     font-size: 2.3rem;
-  }
+  } */
   section {
     padding: 2rem 3%;
   }
@@ -376,5 +394,19 @@ section {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+}
+
+@keyframes floatDot {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-0.3rem);
+  }
+
+  50% {
+    transform: translateY(0);
   }
 }

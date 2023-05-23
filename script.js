@@ -113,6 +113,11 @@ const listeners = () => {
       consentVal &&
       consentTwoVal
     ) {
+      errorCont.style.display = "flex";
+      errorText.innerHTML =
+        "Wysyłanie wiadomości <span class='dot-one'>.</span><span class='dot-two'>.</span><span class='dot-three'>.</span>";
+      errorBtn.style.display = "none";
+
       fetch("https://formsubmit.co/ajax/00ef6414277af7743436afe49ecb5364", {
         method: "POST",
         headers: {
@@ -130,6 +135,7 @@ const listeners = () => {
         .then((data) => {
           errorCont.style.display = "flex";
           errorText.innerHTML = "Wiadomość wysłana!";
+          errorBtn.style.display = "block";
           fullname.value = "";
           email.value = "";
           phoneNumber.value = "";
@@ -137,7 +143,11 @@ const listeners = () => {
           consent.checked = false;
           consentTwo.checked = false;
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          errorCont.style.display = "flex";
+          errorText.innerHTML = "Błąd wysyłania wiadomości!";
+          errorText.innerHTML += error;
+        });
     }
   });
 
