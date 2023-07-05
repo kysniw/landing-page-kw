@@ -107,6 +107,14 @@ section {
 .contact {
   display: flex;
   align-items: center;
+  transition: 0.3s;
+  position: relative;
+}
+
+section.contact.hide {
+  transform: scale(0);
+  min-height: 0;
+  height: 0;
 }
 
 .contact h2 {
@@ -249,16 +257,16 @@ section {
   background: #323946;
 }
 
-.footer-text {
+.footer__text {
   display: flex;
   font-size: 1.3rem;
 }
 
-.footer-text p {
+.footer__text p {
   margin-right: 1rem;
 }
 
-.footer-text a {
+.footer__text a {
   display: inline-block;
   color: white;
   text-decoration: underline;
@@ -266,11 +274,11 @@ section {
   margin-right: 1rem;
 }
 
-.footer-text a:hover {
+.footer__text a:hover {
   color: rgb(250, 19, 158);
 }
 
-.footer-iconTop a {
+.footer__iconTop a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -279,11 +287,11 @@ section {
   border-radius: 50%;
   transition: 0.5s ease;
 }
-.footer-iconTop a i {
+.footer__iconTop a i {
   font-size: 3rem;
   color: white;
 }
-.footer-iconTop a:hover {
+.footer__iconTop a:hover {
   box-shadow: 0 0 1rem rgb(250, 19, 158);
 }
 
@@ -375,14 +383,14 @@ section {
     margin: 0;
   }
 
-  .footer-text {
+  .footer__text {
     flex-direction: column;
     justify-content: space-evenly;
     height: 8rem;
     align-items: center;
   }
 
-  .footer-text {
+  .footer__text {
     margin: 0;
   }
 
