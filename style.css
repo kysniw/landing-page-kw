@@ -120,6 +120,7 @@ section.contact.hide {
 }
 
 .contact h2 {
+  font-size: 2rem;
   margin-bottom: 3rem;
 }
 .contact form {
