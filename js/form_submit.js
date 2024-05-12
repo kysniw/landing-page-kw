@@ -25,7 +25,7 @@ const elements = () => {
 };
 
 const listeners = () => {
-  formSubmit.addEventListener("submit", (e) => {
+  formSubmit.addEventListener("submit", async (e) => {
     e.preventDefault();
     let fullnameVal = false;
     let emailVal = false;
@@ -118,7 +118,7 @@ const listeners = () => {
         "Wysyłanie wiadomości <span class='dot-one'>.</span><span class='dot-two'>.</span><span class='dot-three'>.</span>";
       errorBtn.style.display = "none";
 
-      fetch("https://formsubmit.co/ajax/00ef6414277af7743436afe49ecb5364", {
+      await fetch("https://formsubmit.co/ajax/matchem.university@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
